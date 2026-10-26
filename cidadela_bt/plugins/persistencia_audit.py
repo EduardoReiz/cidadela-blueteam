@@ -18,6 +18,7 @@ LOLBin, ou executável em Temp/Downloads/Público.
 
 from __future__ import annotations
 
+import ntpath
 import os
 import re
 import subprocess
@@ -55,7 +56,7 @@ def _primeiro_exe(comando: str) -> str:
         caminho = comando[1:fim] if fim > 0 else comando[1:]
     else:
         caminho = comando.split()[0] if comando.split() else ""
-    return os.path.basename(caminho).lower()
+    return ntpath.basename(caminho).lower()  # caminhos do Windows, em qualquer SO
 
 
 def caminho_exe(comando: str) -> str:
